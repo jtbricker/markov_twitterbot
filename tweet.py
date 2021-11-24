@@ -103,7 +103,7 @@ def handle(event, context):
         if tweet != None and len(tweet) < 40:
             rando = random.randint(0,10)
             if rando == 0 or rando == 7: 
-                print "Short tweet. Adding another sentence randomly"
+                print("Short tweet. Adding another sentence randomly")
                 newer_tweet = mine.generate_sentence()
                 if newer_tweet != None:
                     tweet += " " + mine.generate_sentence()
@@ -111,7 +111,7 @@ def handle(event, context):
                     tweet = tweet
             elif rando == 1:
                 #say something crazy/prophetic in all caps
-                print "ALL THE THINGS"
+                print("ALL THE THINGS")
                 tweet = tweet.upper()
 
         #throw out tweets that match anything from the source account.
@@ -120,18 +120,18 @@ def handle(event, context):
                 if tweet[:-1] not in tweet:
                     continue
                 else: 
-                    print "TOO SIMILAR: " + tweet
+                    print("TOO SIMILAR: " + tweet)
                     sys.exit()
                           
             if DEBUG == False:
                 status = api.PostUpdate(tweet)
-                print status.text.encode('utf-8')
+                print(status.text.encode('utf-8'))
             else:
-                print tweet
+                print(tweet)
 
         elif tweet == None:
-            print "Tweet is empty, sorry."
+            print("Tweet is empty, sorry.")
         else:
-            print "TOO LONG: " + tweet
+            print("TOO LONG: " + tweet)
     else:
-        print str(guess) + " No, sorry, not this time." #message if the random number fails.
+        print(str(guess) + " No, sorry, not this time.") #message if the random number fails.
