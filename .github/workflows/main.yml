@@ -52,4 +52,4 @@ jobs:
             #name of my AWS Lambda Function
             function_name: clinton-twitterbot
             #contains all the files in my github repository
-            zip_file: test-dep-dev.zip
+            zip_file: lambda.zip
