@@ -55,7 +55,7 @@ def grab_tweets(api, max_id=None):
             source_tweets.append(tweet.text)
     return source_tweets, max_id
 
-if __name__=="__main__":
+def handle(event, context):
     order = ORDER
     if DEBUG==False:
         guess = random.choice(range(ODDS))
